@@ -14,26 +14,42 @@
     </head>
     <body>
         {% block topNavbar %}
-        <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <nav class="cyan darken-3" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Personal</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Right Link</a></li>
+                    <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
+                    <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
+                    <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>
+                    
                     {% block rightTopNavBar %}{% endblock %}
+                    
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ url('sonata_admin_dashboard') }}">Admin</a></li>
+                    {% endif %}
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Left Link</a></li>
-                    {% block leftTopNavBar %}{% endblock %}
+                    <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
+                    <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
+                    <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>
+                    
+                    {% block sideNavBar %}{% endblock %}
+                    
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ url('sonata_admin_dashboard') }}">Admin</a></li>
+                    {% endif %}
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
     {% endblock %}
-    
-    {% block content %}{% endblock %}
-
+    <main>
+        {% block content %}{% endblock %}
+    </main>
     {% block footer %}
-        <footer class="page-footer cyan darken-3">
+        <footer class="page-footer cyan darken-3 footer">
             <div class="container">
                 <div class="row">
                     <div class="col l3 s12">
@@ -57,7 +73,15 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    {{ personal.name }} <i class="fa fa-copyright"></i> 2015 <br>
+                    {% spaceless %}
+                        {{ personal.name }} <i class="fa fa-copyright"></i> 
+                        {% if (personal.install_at and "now"|date('Y') != personal.install_at) %}
+                            {{ personal.install_at }} - {{ "now"|date('Y') }}
+                        {% else %}
+                                {{ "now"|date('Y') }}
+                        {% endif %}
+                    {% endspaceless %}
+                    <br>
                     Made with <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
                 </div>
             </div>

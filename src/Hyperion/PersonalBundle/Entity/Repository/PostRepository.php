@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyperion\PersonalBundle\Entity;
+namespace Hyperion\PersonalBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -2,3 +2,26 @@ services:
 #    hyperion_personal.example:
 #        class: Hyperion\PersonalBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+services:
+    sonata.admin.post:
+        class: Hyperion\PersonalBundle\Admin\PostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+        arguments:
+            - ~
+            - Hyperion\PersonalBundle\Entity\Post
+            - ~
+        calls:
+            - [ setTranslationDomain, [HyperionPersonalBundle]]
+    
+    sonata.admin.portolio:
+        class: Hyperion\PersonalBundle\Admin\PortfolioAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+        arguments:
+            - ~
+            - Hyperion\PersonalBundle\Entity\Portfolio
+            - ~
+        calls:
+            - [ setTranslationDomain, [HyperionPersonalBundle]]
+               

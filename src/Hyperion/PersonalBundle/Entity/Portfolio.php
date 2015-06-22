@@ -22,11 +22,13 @@ class Portfolio
     private $id;
 
     /**
-     * @var string
+     * @var Post
      *
-     * @ORM\Column(name="title", type="string", length=30)
-     */
-    private $title;
+     * @ORM\OneToOne(targetEntity="Post")
+    */
+    private $post;
+    
+    private $category;
 
 
     /**
@@ -40,25 +42,27 @@ class Portfolio
     }
 
     /**
-     * Set title
+     * Set Post
      *
-     * @param string $title
+     * @param Post $post
      * @return Portfolio
      */
-    public function setTitle($title)
+    public function setPost($post)
     {
-        $this->title = $title;
+        $this->post = $post;
 
         return $this;
     }
 
     /**
-     * Get title
+     * Get post
      *
      * @return string 
      */
-    public function getTitle()
+    public function getPost()
     {
-        return $this->title;
+        return $this->post;
     }
+    
+    
 }

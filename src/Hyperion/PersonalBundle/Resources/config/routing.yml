@@ -1,3 +1,20 @@
 hyperion_personal_homepage:
     path:     /
     defaults: { _controller: HyperionPersonalBundle:Default:index }
+
+hyperion_personal_blog:
+    path:     /blog
+    defaults: { _controller: HyperionPersonalBundle:Default:blog }
+
+hyperion_personal_portfolio:
+    path:     /portfolio
+    defaults: { _controller: HyperionPersonalBundle:Default:index }
+
+hyperion_personal_contact:
+    path:     /contact
+    defaults: { _controller: HyperionPersonalBundle:Default:index }
+    
+hyperion_personal_post:
+    path:     /post/{slug}
+    defaults: { _controller: HyperionPersonalBundle:Default:post }
+    

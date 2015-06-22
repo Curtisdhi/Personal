@@ -2,6 +2,7 @@
 
 namespace Hyperion\PersonalBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,25 +44,35 @@ class Post
     private $author;
 
     /**
-     * @var \DateTime
+     * @var \DateTime $created
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var \DateTime
+     * @var \DateTime $updated
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tags", type="string", length=255)
+     * @ORM\Column(name="tags", type="string", length=255, nullable=true)
      */
     private $tags;
+    
+    /**
+     * @var string
+     * 
+     * @Gedmo\Slug(fields={"title"}, unique=true)
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
 
 
     /**
@@ -210,5 +221,26 @@ class Post
     public function getTags()
     {
         return $this->tags;
+    }
+    
+    /**
+     * Set slug
+     * 
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug) {
+        $this->slug = $slug;
+        
+        return $this;
+    }
+     
+    /**
+     * Get slug
+     * 
+     * @return string
+     */
+    public function getSlug() {
+        return $this->slug;
     }
 }

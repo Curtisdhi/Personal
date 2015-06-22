@@ -1,0 +1,3 @@
+hyperion_personal_homepage:
+    path:     /
+    defaults: { _controller: HyperionPersonalBundle:Default:index }

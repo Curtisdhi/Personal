@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>{% block title %}{% endblock %}</title>
+
+        {% block stylesheets %}
+            <!-- CSS  -->
+            <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        {% endblock %}
+    </head>
+    <body>
+        {% block topNavbar %}
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Right Link</a></li>
+                    {% block rightTopNavBar %}{% endblock %}
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Left Link</a></li>
+                    {% block leftTopNavBar %}{% endblock %}
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+    {% endblock %}
+    
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+        <footer class="page-footer cyan darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Connect</h5>
+                        <ul class="inline-list">
+                            {% if personal.urls.linkedin is not empty %}
+                            <li><a class="white-text" href="{{ personal.urls.linkedin }}"><i class="fa fa-3x fa-linkedin-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.github is not empty %}
+                            <li><a class="white-text" href="{{ personal.urls.github }}"><i class="fa fa-3x fa-github-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.bitbucket is not empty %}
+                            <li><a class="white-text" href="{{ personal.urls.bitbucket }}"><i class="fa fa-3x fa-bitbucket-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.twitter is not empty %}
+                            <li><a class="white-text" href="{{ personal.urls.twitter }}"><i class="fa fa-3x fa-twitter-square connect-icon"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    {{ personal.name }} <i class="fa fa-copyright"></i> 2015 <br>
+                    Made with <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </footer>
+
+    {% endblock %}
+
+    {% block javascript %}
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="{{ asset('js/materialize.js') }}"></script>
+        <script src="{{ asset('js/init.js') }}"></script>
+
+    {% endblock %}
+    </body>
+</html>

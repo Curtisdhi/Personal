@@ -1,0 +1,10 @@
+.inline-list li {
+  display: inline-block; }
+
+.connect-icon:hover {
+  color: #00cccc; }
+
+.shattered {
+  background: url("../images/shattered.png"); }
+
+/*# sourceMappingURL=style.css.map */

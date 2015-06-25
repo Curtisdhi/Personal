@@ -6,6 +6,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
+use Hyperion\PersonalBundle\Form\Type\TagsType;
+
 class PostAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
@@ -14,7 +16,8 @@ class PostAdmin extends Admin
         $formMapper
             ->add('title', 'text', array('label' => 'Post Title'))
             ->add('author', 'entity', array('class' => 'Hyperion\PersonalBundle\Entity\User'))
-            ->add('content') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('content', 'textarea') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('tags', new TagsType(), array('attr' => array('placeholder' => 'Use commas to seperate tags.')))
         ;
     }
 

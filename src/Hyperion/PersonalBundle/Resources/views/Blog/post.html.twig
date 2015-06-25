@@ -11,7 +11,13 @@
                 <div class="card-content">
                     <span class="card-title black-text">{{ post.title }}</span>
                     <p class="light">Posted: {{ post.createdAt|date('M d, Y') }}</p>
-                    <p>{{ post.content|raw }}</p>
+                    <p>{{ post.content|readmore(false)|raw }}</p>
+                </div>
+                <div class="card-action">
+                    <i class="fa fa-tags"></i>
+                    {% spaceless %}
+                        {{ post.tags|join(', ') }}
+                    {% endspaceless %}
                 </div>
             </div>
         </div>

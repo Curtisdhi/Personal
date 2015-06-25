@@ -16,11 +16,13 @@
                                     <a href="{{ url('hyperion_personal_post', {'slug': post.slug}) }}">{{ post.title }}</a>
                                 </span>
                                 <p class="light">Posted: {{ post.createdAt|date('M d, Y') }}</p>
-                                <p>{{ post.content|raw }}</p>
+                                <p>{{ post.content|readmore(true, url('hyperion_personal_post', {'slug': post.slug}))|raw }}</p>
                             </div>
                             <div class="card-action">
                                 <i class="fa fa-tags"></i>
-                                {{ post.tags }}
+                                {% spaceless %}
+                                {{ post.tags|join(', ') }}
+                                {% endspaceless %}
                             </div>
                         </div>
                     </div>

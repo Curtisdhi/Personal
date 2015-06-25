@@ -26,3 +26,5 @@ parameters:
             bitbucket: https://bitbucket.org/
             linkedin: https://www.linkedin.com/
             twitter: https://twitter.com/
+
+    readmore_tag: '[readmore]'

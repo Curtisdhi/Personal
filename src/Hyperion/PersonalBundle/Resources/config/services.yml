@@ -24,4 +24,9 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [HyperionPersonalBundle]]
-               
+    app.readmore_extension:
+        class: Hyperion\PersonalBundle\Twig\Extension\ReadMoreExtension
+        public: false
+        arguments: ['%readmore_tag%']
+        tags:
+            - { name: twig.extension }               

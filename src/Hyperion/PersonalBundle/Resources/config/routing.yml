@@ -5,16 +5,22 @@ hyperion_personal_homepage:
 hyperion_personal_blog:
     path:     /blog
     defaults: { _controller: HyperionPersonalBundle:Default:blog }
+    
+hyperion_personal_post:
+    path:     /post/{slug}
+    defaults: { _controller: HyperionPersonalBundle:Default:post }
 
 hyperion_personal_portfolio:
     path:     /portfolio
-    defaults: { _controller: HyperionPersonalBundle:Default:index }
+    defaults: { _controller: HyperionPersonalBundle:Portfolio:index }
+
+hyperion_personal_portfolio_post:
+    path:     /portfolio/post/{slug}
+    defaults: { _controller: HyperionPersonalBundle:Portfolio:post }
 
 hyperion_personal_contact:
     path:     /contact
     defaults: { _controller: HyperionPersonalBundle:Default:index }
     
-hyperion_personal_post:
-    path:     /post/{slug}
-    defaults: { _controller: HyperionPersonalBundle:Default:post }
+
     

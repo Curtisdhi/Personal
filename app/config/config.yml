@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -86,7 +86,12 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Hyperion\PersonalBundle\Entity\User
+    user_class:  Hyperion\PersonalBundle\Entity\User
+    
+sonata_admin:
+    templates:
+        layout: HyperionPersonalBundle:Admin:standard_layout.html.twig
+    title: Personal
     
 sonata_block:
     default_contexts: [cms]
@@ -101,3 +106,4 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+            uploadable: true

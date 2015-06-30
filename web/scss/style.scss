@@ -98,3 +98,24 @@ header-info {
     }
     
 }
+.sidebar .links { 
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .links li {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .links a {
+    width: 220px;
+    padding: 10px;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.sidebar .links a:hover {
+    background: #545454;
+}
+

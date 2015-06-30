@@ -3,6 +3,7 @@
 namespace Hyperion\PersonalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Portfolio
@@ -24,12 +25,17 @@ class Portfolio
     /**
      * @var Post
      *
-     * @ORM\OneToOne(targetEntity="Post")
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "remove"})
+     * @Assert\Valid()
     */
     private $post;
     
-    private $category;
-
+    /**
+     * @var \DateTime $projectYear
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $projectYear;
 
     /**
      * Get id
@@ -40,7 +46,29 @@ class Portfolio
     {
         return $this->id;
     }
+    
+    /**
+     * Get project year
+     * 
+     * @return int
+     */
+    public function getProjectYear() {
+        return $this->projectYear;
+    }
 
+    /**
+     * Set project year
+     * 
+     * @param int $projectYear
+     * @return Portfolio
+     */
+    public function setProjectYear($projectYear) {
+        $this->projectYear = $projectYear;
+        
+        return $this;
+    }
+
+    
     /**
      * Set Post
      *

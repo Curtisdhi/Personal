@@ -12,8 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Hyperion\PersonalBundle\Entity\Repository\PostRepository")
  */
-class Post
-{
+class Post {
+
     /**
      * @var integer
      *
@@ -61,25 +61,27 @@ class Post
     private $updatedAt;
 
     /**
-      * @ORM\Column(type="simple_array", nullable=true)
-      * @Assert\All({
-      *  @Assert\NotBlank(message="Tags should not be blank."),
-      *  @Assert\Length(
-      *   min=3,
-      *   max=20,
-      *   minMessage = "Tags must be at least {{ limit }} characters long.",
-      *   maxMessage = "Tags must be no longer than {{ limit }} characters."
-      *  ),
-      * @Assert\Regex(
-      *   pattern="/^[A-Za-z][\w\-\s][A-Za-z0-9]+$/",
-      *   message="Tags must start with a letter and can only 
-             contain alphanumeric, underscore, and dash characters and can not end with an underscore."
-      *  )
-      * })
-      * @Assert\NotNull(message="You need at least one tag!")
-      */
+     * @var string[]
+     * 
+     * @ORM\Column(type="simple_array", nullable=true)
+     * @Assert\All({
+     *  @Assert\NotBlank(message="Tags should not be blank."),
+     *  @Assert\Length(
+     *   min=3,
+     *   max=20,
+     *   minMessage = "Tags must be at least {{ limit }} characters long.",
+     *   maxMessage = "Tags must be no longer than {{ limit }} characters."
+     *  ),
+     * @Assert\Regex(
+     *   pattern="/^[A-Za-z][\w\-\s][A-Za-z0-9]+$/",
+     *   message="Tags must start with a letter and can only 
+      contain alphanumeric, underscore, and dash characters and can not end with an underscore."
+     *  )
+     * })
+     * @Assert\NotNull(message="You need at least one tag!")
+     */
     protected $tags;
-    
+
     /**
      * @var string
      * 
@@ -88,14 +90,12 @@ class Post
      */
     private $slug;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -105,8 +105,7 @@ class Post
      * @param string $title
      * @return Post
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -117,8 +116,7 @@ class Post
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -128,8 +126,7 @@ class Post
      * @param string $content
      * @return Post
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -140,8 +137,7 @@ class Post
      *
      * @return string 
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -151,8 +147,7 @@ class Post
      * @param string $author
      * @return Post
      */
-    public function setAuthor($author)
-    {
+    public function setAuthor($author) {
         $this->author = $author;
 
         return $this;
@@ -163,8 +158,7 @@ class Post
      *
      * @return string 
      */
-    public function getAuthor()
-    {
+    public function getAuthor() {
         return $this->author;
     }
 
@@ -174,8 +168,7 @@ class Post
      * @param \DateTime $createdAt
      * @return Post
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -186,8 +179,7 @@ class Post
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -197,8 +189,7 @@ class Post
      * @param \DateTime $updatedAt
      * @return Post
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -209,8 +200,7 @@ class Post
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -220,8 +210,7 @@ class Post
      * @param string $tags
      * @return Post
      */
-    public function setTags($tags)
-    {
+    public function setTags($tags) {
         $this->tags = $tags;
 
         return $this;
@@ -232,11 +221,10 @@ class Post
      *
      * @return string 
      */
-    public function getTags()
-    {
+    public function getTags() {
         return $this->tags;
     }
-    
+
     /**
      * Set slug
      * 
@@ -245,10 +233,10 @@ class Post
      */
     public function setSlug($slug) {
         $this->slug = $slug;
-        
+
         return $this;
     }
-     
+
     /**
      * Get slug
      * 
@@ -257,4 +245,5 @@ class Post
     public function getSlug() {
         return $this->slug;
     }
+
 }

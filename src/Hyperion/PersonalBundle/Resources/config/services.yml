@@ -17,7 +17,7 @@ services:
     sonata.admin.portolio:
         class: Hyperion\PersonalBundle\Admin\PortfolioAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Portolio" }
         arguments:
             - ~
             - Hyperion\PersonalBundle\Entity\Portfolio

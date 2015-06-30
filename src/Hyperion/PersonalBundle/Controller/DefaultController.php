@@ -30,4 +30,5 @@ class DefaultController extends Controller
             'post' => $post,
         ));
     }
+    
 }

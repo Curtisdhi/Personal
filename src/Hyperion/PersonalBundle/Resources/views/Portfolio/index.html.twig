@@ -1,0 +1,43 @@
+{% extends 'HyperionPersonalBundle::base.html.twig' %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                {% for portfolio in portfolios %}
+                    <div class="col s12 m6">
+                        <div class="card green lighten-5">
+                            <div class="card-content">
+                                <span class="card-title">
+                                    <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">{{ portfolio.post.title }}</a>
+                                    <p class="black-text dark pull-right">{{ portfolio.projectYear }}</p>
+                                </span>
+                                <p>{{ portfolio.post.content|readmore(true, url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}))|raw }}</p>
+                            </div>
+                            <div class="card-action">
+                                <i class="fa fa-tags"></i>
+                                {% spaceless %}
+                                {{ portfolio.post.tags|join(', ') }}
+                                {% endspaceless %}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col s12 m12 center">
+                        <div class="card green lighten-3">
+                            <div class="card-content">
+                                <p class="light">No portfolio items have been made yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

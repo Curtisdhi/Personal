@@ -12,9 +12,8 @@ class PortfolioAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array('label' => 'Portfolio Title'))
-            ->add('author', 'entity', array('class' => 'Hyperion\Personal\Entity\User'))
-            ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('post', 'sonata_type_admin')
+            ->add('projectDate', 'date')
         ;
     }
 
@@ -22,8 +21,8 @@ class PortfolioAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
-            ->add('author')
+            ->add('post.title')
+            ->add('post.author')
         ;
     }
 
@@ -31,9 +30,11 @@ class PortfolioAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
-            ->add('slug')
-            ->add('author')
+            ->addIdentifier('id')
+            ->add('post.title', 'text', array('editable' => true))
+            ->add('post.slug', 'text', array('editable' => true))
+            ->add('post.author', 'text')
+            ->add('projectYear', 'text', array('editable' => true))
         ;
     }
 }

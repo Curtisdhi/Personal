@@ -1,0 +1,18 @@
+{# src/HyperionStudios/GxpBundle/Resources/views/Email/contact.html.twig #}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="author" content="Hyperion Studios">
+<title>{% block title %}Curtisdhi.com | Contact From {{ contact.name }}{% endblock %}</title>
+</head>
+<body bgcolor="#ABABAB" color="#FFFFFF">
+ 
+    <h2>Sent from contact page by <strong>{{ contact.name }}</strong></h2>
+    <p>Email: <strong>{{ contact.email }}</strong></p>
+    <p>{{ contact.message }}</p>
+
+</body>
+</html>

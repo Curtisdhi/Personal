@@ -23,6 +23,7 @@ class AppKernel extends Kernel {
             new Sonata\AdminBundle\SonataAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             
             new Hyperion\PersonalBundle\HyperionPersonalBundle(),
         );

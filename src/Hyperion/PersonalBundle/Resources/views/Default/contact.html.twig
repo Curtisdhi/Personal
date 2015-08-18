@@ -1,0 +1,52 @@
+{% extends 'HyperionPersonalBundle::base.html.twig' %}
+
+{% block title %}Contact Me{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="row">
+        <div class="col s4 offset-s4">
+            <div class="card grey lighten-4">
+                <div class="card-content grey-text darken-1-text">
+                    <span class="card-title grey-text darken-3-text">
+                        Contact Me
+                    </span>
+                    {% for flashMessage in app.session.flashbag.get('email_success') %}
+                        <div class="alert alert-success">{{ flashMessage|raw }}</div>
+                    {% endfor %}
+                    <div>
+                        {{ form_start(form) }}
+                        {{ form_row(form.name) }}
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.message) }}
+                        <div>
+                            {{ form_errors(form.recaptcha) }}  
+                            {{ form_widget(form.recaptcha) }}  
+                        </div>
+                        <br>
+                        {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                    <div>
+                        <h5>Connect</h5>
+                        <ul class="inline-list">
+                            {% if personal.urls.linkedin is not empty %}
+                                <li><a class="blue-text" target="_blank" href="{{ personal.urls.linkedin }}"><i class="fa fa-3x fa-linkedin-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.github is not empty %}
+                                <li><a class="blue-text" target="_blank" href="{{ personal.urls.github }}"><i class="fa fa-3x fa-github-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.bitbucket is not empty %}
+                                <li><a class="blue-text" target="_blank" href="{{ personal.urls.bitbucket }}"><i class="fa fa-3x fa-bitbucket-square connect-icon"></i></a></li>
+                            {% endif %}
+                            {% if personal.urls.twitter is not empty %}
+                                <li><a class="blue-text" target="_blank" href="{{ personal.urls.twitter }}"><i class="fa fa-3x fa-twitter-square connect-icon"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

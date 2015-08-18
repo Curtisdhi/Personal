@@ -6,7 +6,7 @@ class ReadMoreExtension extends \Twig_Extension
 {
     private $readmoreTag;
     
-    public function __construct($readmoreTag='[readmoref]') {
+    public function __construct($readmoreTag='[readmore]') {
         $this->readmoreTag = $readmoreTag;
     }
     public function getFilters()

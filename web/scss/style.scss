@@ -79,8 +79,12 @@
 
 .shattered {
     background: url('../images/shattered.png');
-    margin-bottom: -20px;
 }
+
+.bright-squares {
+    background: url('../images/bright_squares.png');
+}
+
 
 body {
     display: flex;

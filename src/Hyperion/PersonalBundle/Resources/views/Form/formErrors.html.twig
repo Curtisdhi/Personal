@@ -3,7 +3,7 @@
         {% if errors|length > 0 %}
         <ul class="list-group">
             {% for error in errors %}
-            <li class="list-group-item"><div class="alert alert-danger">{{ error.message|raw }}</div></li>
+            <li class="list-group-item"><div class="red-text">{{ error.message|raw }}</div></li>
             {% endfor %}
         </ul>
         {% endif %}

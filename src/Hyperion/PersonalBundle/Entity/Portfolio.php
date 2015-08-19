@@ -3,6 +3,7 @@
 namespace Hyperion\PersonalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Hyperion\PersonalBundle\Entity\Repository\PortfolioRepository")
+ * @Gedmo\Uploadable(allowOverwrite=true, filenameGenerator="SHA1")
  */
 class Portfolio
 {
@@ -31,11 +33,27 @@ class Portfolio
     private $post;
     
     /**
-     * @var \DateTime $projectYear
+     * @var \integer $projectYear
      *
      * @ORM\Column(type="integer")
      */
     private $projectYear;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", nullable=true)
+     * @Gedmo\UploadableFileName
+     */
+    protected $filename;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath 
+     */
+    private $imgPath;
 
     /**
      * Get id
@@ -67,7 +85,46 @@ class Portfolio
         
         return $this;
     }
+    
+    /**
+     * Get image path
+     * 
+     * @return string
+     */
+    function getImgPath() {
+        return $this->imgPath;
+    }
 
+    /**
+     * Set image path
+     * 
+     * @param string $imgPath
+     * @return Banner
+     */
+    function setImgPath($imgPath) {
+        $this->imgPath = $imgPath;
+        
+        return $this;
+    }
+
+    /**
+     * Get file name
+     * 
+     * @return string
+     */
+    public function getFileName() {
+        return $this->filename;
+    }
+
+    /**
+     * Get web path
+     * NOTE: had to hardcode the path.... need a better way
+     * 
+     * @return string
+     */
+    public function getWebPath() {
+        return 'uploads/'. $this->getFilename();
+    }
     
     /**
      * Set Post

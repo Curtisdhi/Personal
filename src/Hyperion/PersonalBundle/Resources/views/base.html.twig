@@ -73,7 +73,7 @@
     <footer class="page-footer cyan darken-3 footer">
         <div class="container">
             <div class="row">
-                <div class="col s12">
+                <div class="col s9">
                     <h5 class="white-text">Connect</h5>
                     <ul class="inline-list">
                         {% if personal.urls.linkedin is not empty %}
@@ -90,13 +90,16 @@
                                 {% endif %}
                     </ul>
                 </div>
+                <div class="col s3">
+                    <p class="white-text">
+                        Made with <a class="teal-text text-lighten-4" target="_BLANK" href="http://materializecss.com">Materialize</a>
+                        and <a class="teal-text text-lighten-4" target="_BLANK" href="http://symfony.com/">Symfony2</a><br>
+                        <a class="teal-text text-lighten-4" target="_BLANK" href="https://github.com/Curtisdhi/Personal">Source Code</a>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="footer-copyright">
-            <p class="white-text right">
-                Made with <a class="teal-text text-lighten-4" target="_BLANK" href="http://materializecss.com">Materialize</a>
-                and <a class="teal-text text-lighten-4" target="_BLANK" href="http://symfony.com/">Symfony2</a><br>
-            </p>
             <div class="container">
                 {% spaceless %}
                     {{ personal.name }} <i class="fa fa-copyright"></i> 

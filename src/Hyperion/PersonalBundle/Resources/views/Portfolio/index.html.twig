@@ -16,6 +16,9 @@
                                     <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">{{ portfolio.post.title }}</a>
                                     <p class="black-text dark pull-right">{{ portfolio.projectYear }}</p>
                                 </span>
+                                <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">
+                                    <img class="responsive-img" src="{{ asset(portfolio.webpath) }}">
+                                </a>
                                 <p>{{ portfolio.post.content|readmore(true, url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}))|raw }}</p>
                             </div>
                             <div class="card-action">

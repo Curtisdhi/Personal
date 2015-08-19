@@ -22,6 +22,7 @@ services:
             - ~
             - Hyperion\PersonalBundle\Entity\Portfolio
             - ~
+            - @service_container
         calls:
             - [ setTranslationDomain, [HyperionPersonalBundle]]
     app.readmore_extension:

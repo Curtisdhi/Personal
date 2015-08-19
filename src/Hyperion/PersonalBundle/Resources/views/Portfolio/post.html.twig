@@ -13,6 +13,7 @@
                         {{ portfolio.post.title }}
                         <p class="dark pull-right">{{ portfolio.projectYear }}</p>
                     </span>
+                    <img class="responsive-img" src="{{ asset(portfolio.webpath) }}">
                     <p>{{ portfolio.post.content|readmore(false)|raw }}</p>
                 </div>
                 <div class="card-action">

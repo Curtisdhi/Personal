@@ -123,3 +123,18 @@ header-info {
     background: #545454;
 }
 
+.section-title {
+    text-align: center;
+}
+
+.carousel-item {
+    margin: 2px;
+    .title {
+        position: absolute;
+        background: rgba(255,255,255,0.75);
+        width: 98.5%;
+        padding: 0 10px;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+}

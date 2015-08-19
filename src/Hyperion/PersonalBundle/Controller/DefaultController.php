@@ -11,7 +11,13 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('HyperionPersonalBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findAll();
+        
+        return $this->render('HyperionPersonalBundle:Default:index.html.twig', array(
+            'portfolios' => $portfolios,
+        ));
     }
     
     public function blogAction() {

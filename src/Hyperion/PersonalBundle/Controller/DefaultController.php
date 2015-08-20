@@ -13,7 +13,8 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findAll();
+        $portfolios =  $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findBy(array(), 
+                array('projectYear' => 'DESC'));
         
         return $this->render('HyperionPersonalBundle:Default:index.html.twig', array(
             'portfolios' => $portfolios,

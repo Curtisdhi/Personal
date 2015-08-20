@@ -10,7 +10,8 @@ class PortfolioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findAll();
+        $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findBy(array(), 
+                array('projectYear' => 'DESC'));
         
         return $this->render('HyperionPersonalBundle:Portfolio:index.html.twig', array(
             'portfolios' => $portfolios,

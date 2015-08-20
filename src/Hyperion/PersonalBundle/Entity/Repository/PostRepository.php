@@ -3,6 +3,7 @@
 namespace Hyperion\PersonalBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * PostRepository
@@ -12,4 +13,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    
+    public function findAllBlogPosts() {
+        $query = $this->createQueryBuilder('p')
+                ->leftJoin('HyperionPersonalBundle:Portfolio', 'po', Join::WITH, 'po.post = p.id')
+                ->where('po IS NULL');
+         
+        return $query->getQuery()->getResult();
+    }
+            
 }

@@ -23,7 +23,7 @@ class DefaultController extends Controller
     public function blogAction() {
         $em = $this->getDoctrine()->getManager();
         
-        $posts = $em->getRepository('HyperionPersonalBundle:Post')->findAll();
+        $posts = $em->getRepository('HyperionPersonalBundle:Post')->findAllBlogPosts() ;
         
         return $this->render('HyperionPersonalBundle:Blog:index.html.twig', array(
             'posts' => $posts,

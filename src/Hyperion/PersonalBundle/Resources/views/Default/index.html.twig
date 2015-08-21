@@ -65,7 +65,7 @@
                     <div class="carousel-item">
                         <div class="title">
                             <span class="grey-text text-darken-1 pull-right">{{ portfolio.projectYear }}</span>
-                            <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">{{ portfolio.post.title }}</a>
+                            <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">{{ portfolio.post.title|truncate(15) }}</a>
                             
                         </div>
                         <a href="{{ url('hyperion_personal_portfolio_post', {'slug': portfolio.post.slug}) }}">

@@ -67,16 +67,11 @@ class Post {
      * @Assert\All({
      *  @Assert\NotBlank(message="Tags should not be blank."),
      *  @Assert\Length(
-     *   min=3,
+     *   min=1,
      *   max=20,
      *   minMessage = "Tags must be at least {{ limit }} characters long.",
      *   maxMessage = "Tags must be no longer than {{ limit }} characters."
      *  ),
-     * @Assert\Regex(
-     *   pattern="/^[A-Za-z][\w\-\s][A-Za-z0-9]+$/",
-     *   message="Tags must start with a letter and can only 
-      contain alphanumeric, underscore, and dash characters and can not end with an underscore."
-     *  )
      * })
      * @Assert\NotNull(message="You need at least one tag!")
      */

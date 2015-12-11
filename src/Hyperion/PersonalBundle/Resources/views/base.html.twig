@@ -41,19 +41,21 @@
                             <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
                             <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
                             <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
+                            <li><a href="{{ url('hyperion_personal_resume') }}">Resume</a></li>
                             <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>
 
                         {% block rightTopNavBar %}{% endblock %}
 
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="{{ url('sonata_admin_dashboard') }}">Admin</a></li>
-                            {% endif %}
+                        {% endif %}
                     </ul>
 
                     <ul id="nav-mobile" class="side-nav">
                         <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
                         <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
                         <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
+                        <li><a href="{{ url('hyperion_personal_resume') }}">Resume</a></li>
                         <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>
 
                     {% block sideNavBar %}{% endblock %}

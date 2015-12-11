@@ -12,7 +12,7 @@ services:
             - Hyperion\PersonalBundle\Entity\Post
             - ~
         calls:
-            - [ setTranslationDomain, [HyperionPersonalBundle]]
+            - [ setTranslationDomain, [HyperionPersonalBundle]]  
     
     sonata.admin.portolio:
         class: Hyperion\PersonalBundle\Admin\PortfolioAdmin
@@ -25,9 +25,22 @@ services:
             - @service_container
         calls:
             - [ setTranslationDomain, [HyperionPersonalBundle]]
+
+    sonata.admin.resume:
+        class: Hyperion\PersonalBundle\Admin\ResumeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Resume" }
+        arguments:
+            - ~
+            - Hyperion\PersonalBundle\Entity\Resume
+            - ~
+            - @service_container
+        calls:
+            - [ setTranslationDomain, [HyperionPersonalBundle]]
+      
     app.readmore_extension:
         class: Hyperion\PersonalBundle\Twig\Extension\ReadMoreExtension
         public: false
         arguments: ['%readmore_tag%']
         tags:
-            - { name: twig.extension }               
+            - { name: twig.extension }         

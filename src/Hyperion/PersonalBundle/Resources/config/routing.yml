@@ -13,10 +13,15 @@ hyperion_personal_post:
 hyperion_personal_portfolio:
     path:     /portfolio
     defaults: { _controller: HyperionPersonalBundle:Portfolio:index }
-
+    
 hyperion_personal_portfolio_post:
     path:     /portfolio/post/{slug}
     defaults: { _controller: HyperionPersonalBundle:Portfolio:post }
+
+hyperion_personal_resume:
+    path:     /resume
+    defaults: { _controller: HyperionPersonalBundle:Resume:index }
+
 
 hyperion_personal_contact:
     path:     /contact

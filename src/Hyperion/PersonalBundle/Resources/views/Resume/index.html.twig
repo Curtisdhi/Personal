@@ -1,0 +1,24 @@
+{% extends 'HyperionPersonalBundle::base.html.twig' %}
+
+{% block title %}
+    Resume
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="section">
+            <div class="card grey lighten-4">
+                <div class="card-content">
+                    <span class="card-title black-text">Résumé</span>
+                    <div>
+                        <embed src="{{ asset(resume.webpath) }}" alt="{{ asset(resume.webpath) }}" width="100%" height="1000px"
+                                pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+                    </div>
+                </div>
+                <div class="card-action">
+                    Last updated: {{ resume.updatedAt|date('M Y') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

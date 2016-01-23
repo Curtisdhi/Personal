@@ -38,13 +38,24 @@
                     </div>
                     <div class="row">
                         <div class="col offset-s2 s4">
-                            <h5>Languages</h5>
-                            PHP, C#, Java, VB.net, &amp; JavaScript
+                            {% if skills['languages'] is defined %}
+                                <h5>Languages</h5>
+                                {% for skill in skills['languages'] %}
+                                    {% if loop.last and skills|length > 0 %} &amp;
+                                    {% elseif not loop.first %}, {% endif %}
+                                    {{ skill.name }}
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="col s4">
-                            <h5>Frameworks</h5>
-                            Symfony2, Laravel &amp; AngularJS
-                            </a>
+                            {% if skills['frameworks'] is defined %}
+                                <h5>Frameworks</h5>
+                                {% for skill in skills['frameworks'] %}
+                                    {% if loop.last and skills|length > 0 %} &amp;
+                                    {% elseif not loop.first %}, {% endif %}
+                                    {{ skill.name }}
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -13,11 +13,20 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $portfolios =  $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findBy(array(), 
+        $portfolios = $em->getRepository('HyperionPersonalBundle:Portfolio')->findBy(array(), 
                 array('projectYear' => 'DESC'));
+        
+        $skills = $em->getRepository('HyperionPersonalBundle:Skill')->findBy(array(),
+                array('category' => 'ASC'));
+        
+        $groupedSkills = array();
+        foreach ($skills as $skill) {
+            $groupedSkills[strtolower($skill->getCategory()->getName())][] = $skill;
+        }
         
         return $this->render('HyperionPersonalBundle:Default:index.html.twig', array(
             'portfolios' => $portfolios,
+            'skills' => $groupedSkills
         ));
     }
     

@@ -38,6 +38,30 @@ services:
         calls:
             - [ setTranslationDomain, [HyperionPersonalBundle]]
       
+    sonata.admin.skillCategory:
+        class: Hyperion\PersonalBundle\Admin\SkillCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Skill Set", label: "Skill Category" }
+        arguments:
+            - ~
+            - Hyperion\PersonalBundle\Entity\SkillCategory
+            - ~
+            - @service_container
+        calls:
+            - [ setTranslationDomain, [HyperionPersonalBundle]] 
+      
+    sonata.admin.skill:
+        class: Hyperion\PersonalBundle\Admin\SkillAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Skill Set", label: "Skill" }
+        arguments:
+            - ~
+            - Hyperion\PersonalBundle\Entity\Skill
+            - ~
+            - @service_container
+        calls:
+            - [ setTranslationDomain, [HyperionPersonalBundle]] 
+               
     app.readmore_extension:
         class: Hyperion\PersonalBundle\Twig\Extension\ReadMoreExtension
         public: false

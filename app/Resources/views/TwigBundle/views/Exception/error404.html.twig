@@ -1,0 +1,30 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}{{ status_code }} Error{% endblock %}
+
+{% block content %}
+    {% if app.request.attributes.get('exception') != null and 
+        app.request.attributes.get('exception').message matches '/Product with SAP Product Number \'\\d*\' not found\\./' %}
+        {% set product = true %}
+    {% endif %}
+    <div class="container">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                {% if product is defined %}
+                    <h1>Error: Product Not Found</h1>
+                {% else %}
+                    <h1>Error: {{ status_text }}</h1>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                    <p class="important-error">The page or file you have requested has been moved or taken off the site.</p>
+                <br>
+                
+                <div class="text-center">
+                    <a href="javascript:history.go(-1);" class="btn btn-primary">Go back</a>
+                    <a href="{{ url('main_index') }}" class="btn btn-default">Return Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -10,7 +10,7 @@ class ResumeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $resume = $em->getRepository('HyperionPersonalBundle:Resume')->findOneBy(array());
+        $resume = $em->getRepository('HyperionPersonalBundle:Resume')->findOneBy(array('published' => true));
 
         if (!$resume) {
             throw $this->createNotFoundException('No resume is on file.');

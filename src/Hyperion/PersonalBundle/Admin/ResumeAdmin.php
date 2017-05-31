@@ -36,6 +36,7 @@ class ResumeAdmin extends Admin
         } 
 
         $formMapper
+            ->add('published', 'checkbox')
             ->add('resumePath', 'file', array(
                 'required' => false,
                 'data_class' => null,
@@ -55,8 +56,9 @@ class ResumeAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('createdAt', 'text')
-            ->add('updatedAt', 'text');
+            ->add('published', 'boolean')
+            ->add('createdAt', 'datetime')
+            ->add('updatedAt', 'datetime');
     }
     
     
@@ -66,6 +68,15 @@ class ResumeAdmin extends Admin
             $uploadableManager = $this->container->get('stof_doctrine_extensions.uploadable.manager');
             $uploadableManager->markEntityToUpload($object, $object->getResumePath());
         }
+        
+        if ($object->getPublished()) {
+            $em = $this->container->get('doctrine')->getEntityManager();
+            $resumes = $em->getRepository('HyperionPersonalBundle:Resume')->findAll();
+            foreach ($resumes as $r) {
+                $r->setPublished(false);
+            }
+            $object->setPublished(true);
+        }
     }
     
     public function preUpdate($object) {
@@ -73,6 +84,16 @@ class ResumeAdmin extends Admin
         if (!empty($object->getResumePath())) {
             $uploadableManager = $this->container->get('stof_doctrine_extensions.uploadable.manager');
             $uploadableManager->markEntityToUpload($object, $object->getResumePath());
+        }
+        
+        
+        if ($object->getPublished()) {
+            $em = $this->container->get('doctrine')->getEntityManager();
+            $resumes = $em->getRepository('HyperionPersonalBundle:Resume')->findAll();
+            foreach ($resumes as $r) {
+                $r->setPublished(false);
+            }
+            $object->setPublished(true);
         }
     }
 }

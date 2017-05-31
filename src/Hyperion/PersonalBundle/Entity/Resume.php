@@ -23,15 +23,14 @@ class Resume
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var Post
-     *
-     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "remove"})
-     * @Assert\Valid()
-    */
-    private $post;
     
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="published", type="boolean")
+     */
+    private $published;
+            
     /**
      * @var string
      * 
@@ -114,29 +113,15 @@ class Resume
         return 'uploads/'. $this->getFilename();
     }
     
-    /**
-     * Set Post
-     *
-     * @param Post $post
-     * @return Portfolio
-     */
-    public function setPost($post)
-    {
-        $this->post = $post;
-
-        return $this;
-    }
-
-    /**
-     * Get post
-     *
-     * @return string 
-     */
-    public function getPost()
-    {
-        return $this->post;
-    }
     
+    function getPublished() {
+        return $this->published;
+    }
+
+    function setPublished($published) {
+        $this->published = $published;
+    }
+
     /**
      * Set createdAt
      *

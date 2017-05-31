@@ -25,6 +25,7 @@ parameters:
 
     personal:
         name: Name Here
+        description: 'Software and Web Developer'
         install_at: 2015
         urls:
             github: https://github.com/

@@ -35,11 +35,11 @@
     {% block body %}
         <body class="{{ background }}">
             {% block topNavbar %}
-                <nav class="cyan darken-3" role="navigation">
+                <nav class="blue-grey darken-1" role="navigation">
                     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">{{ personal.name }}</a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
-                            <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
+                            {#<li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>#}
                             <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
                             <li><a href="{{ url('hyperion_personal_resume') }}">Resume</a></li>
                             <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>
@@ -53,7 +53,7 @@
 
                     <ul id="nav-mobile" class="side-nav">
                         <li><a href="{{ url('hyperion_personal_homepage') }}">Home</a></li>
-                        <li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>
+                        {#<li><a href="{{ url('hyperion_personal_blog') }}">Blog</a></li>#}
                         <li><a href="{{ url('hyperion_personal_portfolio') }}">Portfolio</a></li>
                         <li><a href="{{ url('hyperion_personal_resume') }}">Resume</a></li>
                         <li><a href="{{ url('hyperion_personal_contact') }}">Contact</a></li>

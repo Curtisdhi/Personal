@@ -1,0 +1,23 @@
+{% extends 'HyperionPersonalBundle::base.html.twig' %}
+
+{% block title %}{{ status_code }} Error{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col s12 offset-m3 m6">
+            <div class="card red lighten-4">
+                <div class="card-content red-text text-darken-2">
+                    <span class="card-title">Error: {{ status_text }}</span>
+                    <p class="important-error">
+                        An error has occured on the server. This may have been a one time glitch on our system due to routine maintenance.<br>
+                        If the error continues to persist, please notify us via the contact page, so the error can be properly investigated.
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="javascript:history.go(-1);" class="btn btn-primary">Go back</a>
+                    <a href="{{ url('hyperion_personal_homepage') }}" class="btn btn-default">Return Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

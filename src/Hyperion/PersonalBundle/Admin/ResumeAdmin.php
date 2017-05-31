@@ -36,7 +36,9 @@ class ResumeAdmin extends Admin
         } 
 
         $formMapper
-            ->add('published', 'checkbox')
+            ->add('published', 'checkbox', array(
+                'required' => false
+            ))
             ->add('resumePath', 'file', array(
                 'required' => false,
                 'data_class' => null,

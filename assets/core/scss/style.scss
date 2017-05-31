@@ -125,19 +125,22 @@ header-info {
     text-align: center;
 }
 
-.carousel-item {
-    margin: 2px;
-    .title {
-        position: absolute;
-        background: rgba(255,255,255,0.75);
-        width: 98.5%;
-        padding: 0 10px;
-        font-size: 20px;
-        font-weight: bolder;
-    }
-    img {
-        width: 100%;
-        height: 200px;
+.carousel {
+    margin-top: -100px;
+    .carousel-item {
+        width: 400px !important;
+        .title {
+            position: absolute;
+            background: rgba(255,255,255,0.75);
+            width: 98.5%;
+            padding: 0 10px;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        img {
+            width: 100%;
+            max-height: 100%;
+        }
     }
 }
 

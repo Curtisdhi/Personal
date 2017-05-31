@@ -75,7 +75,7 @@ gulp.task('build:js:vendors', function() {
     //don't use min version for dev (helps during debugging)
     return gulp.src(['assets/vendors/jquery/dist/jquery.js',
         'assets/vendors/materialize/dist/js/materialize.js',
-        'assets/vendors/salvattore/dist/salvattire.js'
+        'assets/vendors/salvattore/dist/salvattore.js'
         ])
         .pipe(plumber())
         .pipe(concat('vendor.min.js'))

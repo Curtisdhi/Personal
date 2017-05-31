@@ -1,0 +1,22 @@
+{
+  "name": "Personal",
+  "authors": [
+    "Curtisdhi <curtisdhi@gmail.com>"
+  ],
+  "description": "Personal",
+  "main": "./web/",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "3.1.1",
+    "materialize": "^0.98.2",
+    "salvattore": "^1.0.9",
+    "font-awesome": "^4.7.0"
+  }
+}

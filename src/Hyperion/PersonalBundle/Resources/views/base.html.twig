@@ -9,9 +9,8 @@
 
         {% block stylesheets %}
             <!-- CSS  -->
-            <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            <link href="{{ asset('dist/css/vendor.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="{{ asset('dist/css/core.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
         {% endblock %}
 
         <script>
@@ -119,10 +118,8 @@
 
 {% block javascript %}
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{{ asset('js/materialize.js') }}"></script>
-    <script src="{{ asset('js/init.js') }}"></script>
-    <script src="{{ asset('js/salvattore.min.js') }}"></script>
+    <script src="{{ asset('dist/js/vendor.min.js') }}"></script>
+    <script src="{{ asset('dist/js/core.min.js') }}"></script>
 
 {% endblock %}
 </body>

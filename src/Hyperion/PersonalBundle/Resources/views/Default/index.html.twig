@@ -4,18 +4,14 @@
     Home
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('owl-carousel/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('owl-carousel/owl.theme.css') }}">
-{% endblock %}
-
 {% block javascript %}
     {{ parent() }}
-    <script src="{{ asset('owl-carousel/owl.carousel.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $("#owl-example").owlCarousel();
+            $('.carousel').carousel({
+                indicators: true,
+                padding: 5
+            });
         });
     </script>
 {% endblock %}
@@ -37,26 +33,16 @@
                         <span><i>&amp;&amp;</i></span>
                     </div>
                     <div class="row">
-                        <div class="col offset-s2 s4">
-                            {% if skills['languages'] is defined %}
-                                <h5>Languages</h5>
-                                {% for skill in skills['languages'] %}
-                                    {% if loop.last and skills|length > 0 %} &amp;
-                                    {% elseif not loop.first %}, {% endif %}
-                                    {{ skill.name }}
-                                {% endfor %}
-                            {% endif %}
-                        </div>
+                        {% for key, skillSet in skills %}
                         <div class="col s4">
-                            {% if skills['frameworks'] is defined %}
-                                <h5>Frameworks</h5>
-                                {% for skill in skills['frameworks'] %}
-                                    {% if loop.last and skills|length > 0 %} &amp;
-                                    {% elseif not loop.first %}, {% endif %}
-                                    {{ skill.name }}
-                                {% endfor %}
-                            {% endif %}
+                            <h5>{{ key|title }}</h5>
+                            {% for skill in skillSet %}
+                                {% if loop.last and skillSet|length > 1 %} &amp;
+                                {% elseif not loop.first %}, {% endif %}
+                                {{ skill.name }}
+                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -71,7 +57,7 @@
                 <div class="mask"></div>
             </div>
             
-            <div id="owl-example" class="owl-carousel">
+            <div class="carousel">
                 {% for portfolio in portfolios %}
                     <div class="carousel-item">
                         <div class="title">

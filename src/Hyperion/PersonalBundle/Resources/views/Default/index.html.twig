@@ -36,7 +36,7 @@
                         {# max 3 categories #}
                         {% for key, skillSet in skills|slice(0,3) %}
                             {# offset if only two categories #}
-                            <div class="col {% if loop.first and skillSet|length < 2 %} offset-s2 {% endif %} s4">
+                            <div class="col {% if loop.first and skills|length < 3 %} offset-s2 {% endif %} s4">
                                 <h5>{{ key|title }}</h5>
                                 {%- for skill in skillSet -%}
                                     {% if loop.last and skillSet|length > 1 %}, &amp;

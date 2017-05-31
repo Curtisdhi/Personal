@@ -1,3 +1,3 @@
-php app/console cache:clear --env=dev
-php app/console cache:clear --env=prod
+php bin/console cache:clear --env=dev
+php bin/console cache:clear --env=prod
 PAUSE
